@@ -154,7 +154,7 @@ class Ant:
     '''
     Class to represent ants 
     '''
-    def __init__(self,  pheromone_intensity:float, start_position:tuple=tuple((0, 0)), breed:AntBreed=AntBreed.MINOR, pheromone_loss_factor:float=0.05) -> None:
+    def __init__(self, pheromone_intensity:float, start_position:tuple=tuple((0, 0)), breed:AntBreed=AntBreed.MINOR) -> None:
         self.start_position = start_position
         self.position = start_position
         # Store the path without cycles to return faster and get the path length
@@ -163,7 +163,6 @@ class Ant:
         self.position_history = [start_position]
         self.returning_nest = False
         self.pheromone_intensity = pheromone_intensity
-        self.pheromone_loss_factor = pheromone_loss_factor
         self.breed = breed
         self.path_length = None
 
@@ -340,22 +339,22 @@ if __name__ == '__main__':
 
     # Uncomment this if you want to see the ants moving in real time
     # WARNING: This could be really addictive
-    # seconds_watch = 0.1
-    # while True:
-    #     print(ant_solver)
-    #     print()
-    #     # print(ant_solver.get_board())
-    #     time.sleep(seconds_watch)
-    #     os.system('clear')
-    #     ant_solver.move()
+    seconds_watch = 0.1
+    while True:
+        print(ant_solver)
+        print()
+        # print(ant_solver.get_board())
+        time.sleep(seconds_watch)
+        os.system('clear')
+        ant_solver.move()
 
     # Comment this if you don't want to see the original and the solved board after 1000 rounds
-    rounds = 1000
-    print(ant_solver)
-    for _ in range(rounds):
-        ant_solver.move()
-    print()
-    print(ant_solver.get_board())
+    # rounds = 1000
+    # print(ant_solver)
+    # for _ in range(rounds):
+    #     ant_solver.move()
+    # print()
+    # print(ant_solver.get_board())
 
 
 
